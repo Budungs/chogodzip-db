@@ -9,7 +9,7 @@ data_cnt = 0 # 가져온 데이터 개수
 while(1):
     # 카테고리 데이터 가져오기
     url = f'https://api.gobang.kr/v1/houses?%7B%22HOUSE_TYPE_CDS%22%3A%5B%22HOUTP00002%22%5D%2C%22DONGLI_CDS%22%3A%5B%2211%22%5D%2C%22PAGE_NUM%22%3A{cur_page_num}%2C%22randomSeed%22%3A5596%7D'
-    https://api.gobang.kr/v1/houses?%7B%22HOUSE_TYPE_CDS%22%3A%5B%22HOUTP00002%22%5D%2C%22DONGLI_CDS%22%3A%5B%2211%22%5D%2C%22PAGE_NUM%22%3A1%2C%22randomSeed%22%3A5596%7D
+    
     # 헤더정보
     header = {
         'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36',

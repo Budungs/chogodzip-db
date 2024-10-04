@@ -43,7 +43,7 @@ while(1):
     json_data = json.loads(response.text) # json파일을 리스트로 받아옴
     #print(json_data)
 
-    # NAME을 추출하는 코드
+    # 현재 페이지의 요소들을 추출하는 함수
     for house in json_data["DATA"]:
         room_cnt = random.randint(1, 3)
         print(room_cnt)
@@ -52,10 +52,10 @@ while(1):
         room_name = house["NAME"]
 
         floor_raw = house["FLOOR"]
-        floor = floor_raw
+        floor = floor_raw.split('|')[0]
+        print("floor: " + floor)
         
-        if(house_type_cd == 'HOUTP00004') : # [임시] ENUM에 없어서 임시로 변경
-            house_type_cd = 'HOUTP00003'
+        house_type_cd = house["HOUSE_TYPE_CD"]
         print(house_type_cd)
 
         house_type_nms_raw = house["HOUSE_TYPE_NMS"]
@@ -102,7 +102,7 @@ while(1):
         
         # SQL 실행 부분
         cursor.execute("""
-            INSERT INTO test 
+            INSERT INTO test_coliving
             (ROOM_CNT, ROOM_NAME, FLOOR, HOUSE_TYPE_CD, HOUSE_TYPE_NMS, GENDER_CD, TAGS, IMG_ID, ROOM_ADDR, ROOM_ADDR_FL, ROOM_LAT, ROOM_LONG, DEPOSIT_MAX, DEPOSIT_MIN, PRICE_MAX, PRICE_MIN, IS_SOLD_OUT) 
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (
@@ -130,7 +130,7 @@ while(1):
         # 밑에 이거 주석 풀기
         #cursor.execute("INSERT INTO coliving (name) VALUES (%s)", (house["NAME"],)) # SQL Injection 방지 코드 (자리 표시자(%s) 이용)
         #cursor.execute(f"INSERT INTO coliving (name) VALUES ('{house_name}')")
-    data_cnt = data_cnt + 1
+        data_cnt = data_cnt + 1
 
     # 만약 다음 페이지가 없는 경우 (==hasMore 값이 false 인 경우) 페이지 종료
     if json_data["hasMore"] == False:
@@ -144,7 +144,7 @@ print("============작업 정상 종료!!================")
 print(f"총 데이터 개수 : {data_cnt}")
 conn.commit()
 
-cursor.execute("SELECT * FROM test")
+cursor.execute("SELECT * FROM test_coliving")
 results = cursor.fetchall() # 한 개만 가져올 때는 fetchone() 메서드 사용
 for result in results:
     print(result)
