@@ -1,9 +1,12 @@
-# coliving (데이터 개수 : 34개)
+# coliving (데이터 개수 : 34개) - 고시원 (미진행)
 f'https://api.gobang.kr/v1/houses?%7B%22HOUSE_TYPE_CDS%22%3A%5B%22HOUTP00004%22%5D%2C%22DONGLI_CDS%22%3A%5B%2211%22%5D%2C%22PAGE_NUM%22%3A{cur_page_num}%2C%22randomSeed%22%3A8165%7D'
 
-# oneroom (데이터 개수 : 1804개)
+# gosiwon (데이터 개수 : 1804개) - 고시원 (완료)
 f'https://api.gobang.kr/v1/houses?%7B%22HOUSE_TYPE_CDS%22%3A%5B%22HOUTP00001%22%2C%22HOUTP00003%22%5D%2C%22DONGLI_CDS%22%3A%5B%2211%22%5D%2C%22PAGE_NUM%22%3A{cur_page_num}%2C%22randomSeed%22%3A565%7D'
 
-# sharehouse (데이터 개수 : 480개)
+# sharehouse (데이터 개수 : 480개) - SHAREHOUSE (완료)
 f'https://api.gobang.kr/v1/houses?%7B%22HOUSE_TYPE_CDS%22%3A%5B%22HOUTP00002%22%5D%2C%22DONGLI_CDS%22%3A%5B%2211%22%5D%2C%22PAGE_NUM%22%3A{cur_page_num}%2C%22randomSeed%22%3A5596%7D'
- 
+
+# jachi  (데이터 개수 : 348개) - JACHI (완료)
+f'https://api.gobang.kr/v1/houses?%7B%22HOUSE_TYPE_CDS%22%3A%5B%22HOUTP00008%22%2C%22HOUTP00009%22%5D%2C%22DONGLI_CDS%22%3A%5B%2211%22%5D%2C%22PAGE_NUM%22%3A{cur_page_num}%2C%22randomSeed%22%3A1526%7D'
+
