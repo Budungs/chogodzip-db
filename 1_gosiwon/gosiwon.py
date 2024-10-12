@@ -7,15 +7,18 @@ from bs4 import BeautifulSoup # html 변환에 사용함
 import time
 import json
 import random
-
-# DB 연결
 import MySQLdb
 
+# DB 설정 파일 로드
+with open('db_config.json') as config_file:
+    config = json.load(config_file)
+
+# DB 연결
 conn = MySQLdb.connect(
-    user="admin", # user명
-    passwd="BUDUNG1234", #pw명
-    host="database-1.clasuc2gyqz1.ap-northeast-2.rds.amazonaws.com", 
-    db="chogodzip" #연결할 DB명
+    user=config['user'], # user명
+    passwd=config['password'], #pw명
+    host=config['host'], # AWS RDS 연결
+    db=config['db'] #연결할 DB명
     # charset="utf-8"
 )
 print(type(conn)) # 정상 연결 시 : <class 'MySQLdb.connections.Connection'>

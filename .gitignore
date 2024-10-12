@@ -1,2 +1,5 @@
 # Ignore the database info file
-DB_info.txt
+AWS_info.txt
+
+# Ignore db config (db connect info)
+db_config.json
