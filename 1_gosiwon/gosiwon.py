@@ -110,7 +110,7 @@ while(1):
         
 
         
-        # SQL 실행 부분 (공통)
+        # SQL 실행 부분 (공통) - ROOM 테이블에 삽입
         cursor.execute("SELECT COUNT(*) FROM ROOM WHERE ROOM_ID = %s", (room_id,))
         result = cursor.fetchone()
 
@@ -131,7 +131,7 @@ while(1):
 
 
         
-        # SQL 실행 부분 (고시원)
+        # SQL 실행 부분 (고시원) - GOSIWON 테이블에 삽입
         cursor.execute("SELECT COUNT(*) FROM GOSIWON WHERE ROOM_ID = %s", (room_id,))
         result = cursor.fetchone()
 
